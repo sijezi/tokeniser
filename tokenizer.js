@@ -1,8 +1,8 @@
-
+'use strict';
 /*
-    tokens to be examined.
+ * html tokens to be examined.
  */
-var tokens = {
+const tokens = {
     html: 'html',
     base: 'base',
     head: 'head',
@@ -21,6 +21,11 @@ var tokens = {
     video: 'video'
 };
 
+/**
+ * [tokenizer match characters]
+ * @param  {[type]} token [description]
+ * @return {[type]}       [description]
+ */
 function tokenizer(token) {
     /*
         [<]  matches the character < literally (case sensivtive)
@@ -30,7 +35,6 @@ function tokenizer(token) {
         [>]  matches the character > literally (case sensitive)
         [g]  global. All matches(don't return after first match) 
      */
-
     var regx = /<.+>/g;
     // convert token to string
     var result = token.match(regx).toString();
@@ -42,6 +46,3 @@ function tokenizer(token) {
         }
     }
 }
-
-
-tokenizer("<html> ")
